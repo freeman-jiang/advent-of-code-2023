@@ -25,7 +25,11 @@ def parse_line(l: str):
             num = int(num)
             max_bag[color] = max(num, max_bag[color])
 
-    return max_bag["red"] * max_bag["blue"] * max_bag["green"]
+    product = 1
+    for v in max_bag.values():
+        product *= v
+
+    return product
 
 
 with open("input.txt") as f:
