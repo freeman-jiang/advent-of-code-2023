@@ -17,14 +17,13 @@ for i, (line, count) in enumerate(lines):
     if matching == 0:
         continue
 
-    for _ in range(count):
-        start = i + 1
-        end = start + matching
+    start = i + 1
+    end = start + matching
 
-        for j in range(start, end):
-            if j >= len(lines):
-                break
-            lines[j] = (lines[j][0], lines[j][1] + 1)
+    for j in range(start, end):
+        if j >= len(lines):
+            break
+        lines[j] = (lines[j][0], lines[j][1] + count)
 
 
 print(sum(count for _, count in lines))
